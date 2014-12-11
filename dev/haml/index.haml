@@ -1,0 +1,108 @@
+!!!
+%html{:lang => "en"}
+
+	= Haml::Engine.new(File.read("dev/haml/partials/_html_head.haml")).render
+
+	%body{"data-gallery" => "inactive"}
+
+
+		:plain
+			<!-- inject:svg --><!-- endinject -->
+
+
+		%header
+
+			%h1 NA
+
+			%h2.subhead-1 Design Concepts / Round 2
+			%h2.subhead-2 For Sandwich
+
+
+		%main{:role => "main"}
+
+			%article{:id => "post-1"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-2"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-3"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-4"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-5"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-6"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-7"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-8"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-9"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-10"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-11"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			%article{:id => "post-12"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
+					%h3 V1 &ndash; Name of the Comp
+
+			-# - (1..12).each do |i|
+				-# %article{:id => "post-#{i}"}
+					-# %a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+						-# %img{:src => "assets/img/thumb-1.jpg", :alt => ""}
+						-# %h3 V#{i} &ndash; Name of the Comp
+
+
+		%aside#gallery{"data-current" => ""}
+
+			%nav#pagination
+
+				%a#nav_prev.nav_arrow{:href => "#", :title => "Previous Image"}
+					%svg.svg_arrow
+						%use{"xlink:href" => "#arrow"}
+
+				%a#nav_close.nav_close{:href => "#", :title => "Close Image"} Back
+
+				%a#nav_next.nav_arrow{:href => "#", :title => "Next Image"}
+					%svg.svg_arrow
+						%use{"xlink:href" => "#arrow"}
+
+			%img#gallery_image{:src => "", :alt => "Full sized concept"}
+
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_scripts.haml")).render
+		= Haml::Engine.new(File.read("dev/haml/partials/_js_analytics.haml")).render

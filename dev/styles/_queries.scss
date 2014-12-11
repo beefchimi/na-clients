@@ -1,0 +1,54 @@
+// ==|== media queries ========================================================
+// WIDTHS: 480px / 568px / 1000px
+// ============================================================================
+
+@media only screen and (min-width: 30em) { // 480px / 16px = 30em
+
+	// Home Page
+	// ----------------------------------------------------------------------------
+	main {
+		max-width: 117rem; // 1106px + padding (32px x 2)
+		column-count: 2;
+		column-gap: 2rem;
+	}
+	main article {
+		display: inline-block;
+		width: 100%;
+	}
+
+}
+
+@media only screen and (min-width: 35.5em) { // 568px / 16px = 35.5em
+
+	// Home Page
+	// ----------------------------------------------------------------------------
+	main {
+		column-count: 3;
+	}
+
+}
+
+@media only screen and (min-width: 62.5em) { // 1000 / 16px = 62.5em
+
+	// Header
+	// ----------------------------------------------------------------------------
+	header {
+		padding: 6rem 3.2rem 10rem 3.2rem;
+	}
+
+	// Home Page
+	// ----------------------------------------------------------------------------
+	main {
+		padding: 0 3.2rem 10rem 3.2rem;
+		column-gap: 7.6rem;
+	}
+	main article {
+		margin-bottom: 8rem;
+	}
+
+}
+
+/*
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { // IE10 & IE11
+}
+*/
