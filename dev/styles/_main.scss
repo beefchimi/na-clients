@@ -136,6 +136,7 @@ aside img {
 	display: block;
 	margin: 0 auto;
 	color: hsla(0,0%,100%,0);
+	// opacity: 0;
 }
 // + overlay states + \\
 body[data-gallery="active"] {
@@ -166,6 +167,15 @@ nav {
 	text-align: center;
 	background-color: hsla(0,0%,100%,0.96);
 }
+nav h4 {
+	display: none;
+	visibility: hidden;
+	position: fixed;
+	top: 2.3rem;
+	left: 3.2rem;
+	font-size: 1.4rem;
+	color: hsla(0,0%,21%,1);
+}
 nav a.nav_close {
 	display: inline-block;
 	padding: 2.3rem 2rem 2.2rem 2rem;
@@ -174,10 +184,10 @@ nav a.nav_close {
 	color: hsla(0,0%,21%,1);
 }
 nav a.nav_close:hover {
-	color: hsla(0,0%,40%,1);
+	color: hsla(41,44%,61%,1);
 }
 nav a.nav_close:active {
-	color: hsla(0,0%,30%,1);
+	color: hsla(41,44%,51%,1);
 }
 nav a.nav_arrow {
 	display: block;
@@ -189,18 +199,26 @@ nav a.nav_arrow {
 	width: 4.2rem; // actual width of svg: 2.2rem
 	height: 4.2rem; // actual height of svg: 2.2rem
 }
-nav a.nav_arrow:first-child {
+nav a.nav_prev {
 	transform: translateX(-8rem);
 }
-nav a.nav_arrow:last-child {
+nav a.nav_next {
 	transform: translateX(8rem) rotate(180deg);
 }
 nav a.nav_arrow svg {
 	fill: hsla(0,0%,21%,1);
 }
 nav a.nav_arrow:hover svg {
-	fill: hsla(0,0%,40%,1);
+	fill: hsla(41,44%,61%,1);
 }
 nav a.nav_arrow:active svg {
-	fill: hsla(0,0%,30%,1);
+	fill: hsla(41,44%,51%,1);
+}
+// --- Preload --- \\
+ul.preload {
+	display: none !important;
+	visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
 }

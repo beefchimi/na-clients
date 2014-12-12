@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
 			elGalleryPrev           = document.getElementById('nav_prev'),
 			elGalleryNext           = document.getElementById('nav_next'),
 			elGalleryClose          = document.getElementById('nav_close'),
+			elGalleryTitle          = document.getElementById('title_current'),
 			elGalleryImage          = document.getElementById('gallery_image'),
-			arrGalleryImages        = [],
+			arrGallerySource        = [],
+			arrGalleryTitle         = [],
 			dataCurrent,
 			dataSRC;
 
@@ -28,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		function launchGallery(thisGalleryLink, index) {
 
-			arrGalleryImages.push(thisGalleryLink.getAttribute('href'));
+			arrGallerySource.push(thisGalleryLink.getAttribute('href'));
+			arrGalleryTitle.push(thisGalleryLink.getAttribute('title'));
 
 			thisGalleryLink.addEventListener('click', function(e) {
 
@@ -46,11 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		function loadImage() {
 
-			dataSRC = arrGalleryImages[dataCurrent];
+			dataSRC = arrGallerySource[dataCurrent];
 
-			console.log(dataCurrent);
-			console.log(dataSRC);
-
+/*
 			var newImg = new Image;
 
 			newImg.onload = function() {
@@ -58,15 +59,16 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 
 			newImg.src = dataSRC;
+*/
 
+			elGalleryImage.src = dataSRC;
+
+			// fadeIn();
+
+			elGalleryTitle.innerHTML = arrGalleryTitle[dataCurrent];
 			elGalleryOverlay.setAttribute('data-current', dataCurrent);
 
 		}
-
-
-
-
-
 
 		elGalleryPrev.addEventListener('click', function(e) {
 
@@ -77,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 
 			loadImage();
+			// fadeOut();
 
 			e.preventDefault();
 
@@ -91,14 +94,11 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 
 			loadImage();
+			// fadeOut();
 
 			e.preventDefault();
 
 		});
-
-
-
-
 
 		elGalleryClose.addEventListener('click', function(e) {
 
@@ -114,6 +114,45 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Initialize Primary Functions
 	// ----------------------------------------------------------------------------
 	gallery();
+
+
+
+/*
+
+		function fadeOut() {
+
+			elGalleryImage.style.opacity = 1;
+
+			(function fade() {
+
+				if ( (elGalleryImage.style.opacity -= .1) < 0 ) {
+					loadImage(); // now loadImage
+				} else {
+					requestAnimationFrame(fade);
+				}
+
+			})();
+
+		}
+
+		function fadeIn() {
+
+			elGalleryImage.style.opacity = 0;
+
+			(function fade() {
+
+				var val = parseFloat(elGalleryImage.style.opacity);
+
+				if ( !((val += .1) > 1) ) {
+					elGalleryImage.style.opacity = val;
+					requestAnimationFrame(fade);
+				}
+
+			})();
+
+		}
+*/
+
 
 
 }, false);

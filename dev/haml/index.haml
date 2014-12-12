@@ -21,64 +21,64 @@
 		%main{:role => "main"}
 
 			%article{:id => "post-1"}
-				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "V1 &ndash; Name of the Comp"}
 					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
 					%h3 V1 &ndash; Name of the Comp
 
 			%article{:id => "post-2"}
-				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "V1 &ndash; Aenean eu leo quam"}
 					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
-					%h3 V1 &ndash; Name of the Comp
+					%h3 V1 &ndash; Aenean eu leo quam
 
 			%article{:id => "post-3"}
-				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "V1 &ndash; Vulputate mattis dapibus"}
 					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
-					%h3 V1 &ndash; Name of the Comp
+					%h3 V1 &ndash; Vulputate mattis dapibus
 
 			%article{:id => "post-4"}
-				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "V1 &ndash; Name of the Comp"}
 					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
 					%h3 V1 &ndash; Name of the Comp
 
 			%article{:id => "post-5"}
-				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "V1 &ndash; Aenean eu leo quam"}
 					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
-					%h3 V1 &ndash; Name of the Comp
+					%h3 V1 &ndash; Aenean eu leo quam
 
 			%article{:id => "post-6"}
-				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "V1 &ndash; Vulputate mattis dapibus"}
 					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
-					%h3 V1 &ndash; Name of the Comp
+					%h3 V1 &ndash; Vulputate mattis dapibus
 
 			%article{:id => "post-7"}
-				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "V1 &ndash; Name of the Comp"}
 					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
 					%h3 V1 &ndash; Name of the Comp
 
 			%article{:id => "post-8"}
-				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "V1 &ndash; Aenean eu leo quam"}
 					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
-					%h3 V1 &ndash; Name of the Comp
+					%h3 V1 &ndash; Aenean eu leo quam
 
 			%article{:id => "post-9"}
-				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "V1 &ndash; Vulputate mattis dapibus"}
 					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
-					%h3 V1 &ndash; Name of the Comp
+					%h3 V1 &ndash; Vulputate mattis dapibus
 
 			%article{:id => "post-10"}
-				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "V1 &ndash; Name of the Comp"}
 					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
 					%h3 V1 &ndash; Name of the Comp
 
 			%article{:id => "post-11"}
-				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-1.jpg", :title => "V1 &ndash; Aenean eu leo quam"}
 					%img{:src => "assets/img/thumb-1.jpg", :alt => ""}
-					%h3 V1 &ndash; Name of the Comp
+					%h3 V1 &ndash; Aenean eu leo quam
 
 			%article{:id => "post-12"}
-				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "View Concept"}
+				%a.gallery_link{:href => "assets/img/full-2.jpg", :title => "V1 &ndash; Vulputate mattis dapibus"}
 					%img{:src => "assets/img/thumb-2.jpg", :alt => ""}
-					%h3 V1 &ndash; Name of the Comp
+					%h3 V1 &ndash; Vulputate mattis dapibus
 
 			-# - (1..12).each do |i|
 				-# %article{:id => "post-#{i}"}
@@ -91,17 +91,28 @@
 
 			%nav#pagination
 
-				%a#nav_prev.nav_arrow{:href => "#", :title => "Previous Image"}
+				%a#nav_prev.nav_prev.nav_arrow{:href => "#", :title => "Previous Image"}
 					%svg.svg_arrow
 						%use{"xlink:href" => "#arrow"}
 
 				%a#nav_close.nav_close{:href => "#", :title => "Close Image"} Back
 
-				%a#nav_next.nav_arrow{:href => "#", :title => "Next Image"}
+				%a#nav_next.nav_next.nav_arrow{:href => "#", :title => "Next Image"}
 					%svg.svg_arrow
 						%use{"xlink:href" => "#arrow"}
 
+				%h4#title_current &nbsp;
+
+			-# , :style => "opacity:0;"
 			%img#gallery_image{:src => "", :alt => "Full sized concept"}
+
+
+		-# only temporary
+		%ul.preload
+			%li
+				%img{:src => "assets/img/full-1.jpg", :alt => ""}
+			%li
+				%img{:src => "assets/img/full-2.jpg", :alt => ""}
 
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_html_scripts.haml")).render
