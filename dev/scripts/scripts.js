@@ -1,9 +1,55 @@
-document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', function() {
+docReady(function() {
 
 
 	// Global Variables
 	// ----------------------------------------------------------------------------
-	var elBody = document.body;
+	var elBody   = document.body,
+		elMain   = document.getElementsByTagName('main')[0],
+		elLoader = document.getElementById('loader');
+
+
+	// Packery: Lay them bitches out
+	// ----------------------------------------------------------------------------
+	function layoutPackery() {
+
+		var arrArticles = elMain.getElementsByTagName('article');
+
+		// layout Packery after all images have loaded
+		imagesLoaded(elMain, function(instance) {
+
+			// initalize packery
+			var elPackery = new Packery(elMain, {
+				itemSelector: 'article',
+				gutter: 'div.gutter-sizer',
+				transitionDuration: '0.6s',
+				visibleStyle: {
+					opacity: 1,
+					transform: 'scale(1)'
+				},
+				hiddenStyle: {
+					opacity: 0,
+					transform: 'scale(1)'
+				}
+			});
+
+			// hide loader by removing 'visible' class
+			classie.remove(elLoader, 'visible');
+
+			// iterate through each article and add 'loaded' class once ready
+			for (var i = 0; i < arrArticles.length; i++) {
+				(function(i){
+					setTimeout(function() {
+						classie.add(arrArticles[i], 'loaded');
+						console.log(200 * i);
+					}, 200 * i);
+				})(i)
+			}
+
+
+		});
+
+	}
 
 
 	// Gallery
@@ -113,8 +159,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Initialize Primary Functions
 	// ----------------------------------------------------------------------------
+	layoutPackery();
 	gallery();
-
 
 
 /*
@@ -154,5 +200,5 @@ document.addEventListener('DOMContentLoaded', function() {
 */
 
 
-
-}, false);
+});
+// }, false);
