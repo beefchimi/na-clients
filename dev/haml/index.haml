@@ -1,9 +1,10 @@
 !!!
-%html{:lang => "en"}
+%html{:lang => "en", "data-gallery" => "inactive"}
 
 	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
 
-	%body{"data-gallery" => "inactive"}
+	%body
+
 
 		%header
 
@@ -11,6 +12,7 @@
 
 			%h2.subhead-1 Design Concepts / Round 2
 			%h2.subhead-2 For Sandwich
+
 
 		%main{:role => "main"}
 
@@ -91,12 +93,6 @@
 					%img{:src => "assets/img/05b_navygold.jpg", :alt => "05b &ndash; Navy Gold"}
 					%h3 05b &ndash; Navy Gold
 
-			-# - (1..12).each do |i|
-				-# %article{:id => "post-#{i}"}
-					-# %a.gallery_link{:href => "assets/img/full-1.jpg", :title => "View Concept"}
-						-# %img{:src => "assets/img/thumb-1.jpg", :alt => ""}
-						-# %h3 V#{i} &ndash; Name of the Comp
-
 
 		%aside#gallery{"data-current" => ""}
 
@@ -114,10 +110,8 @@
 
 				%h4#title_current &nbsp;
 
-			-# , :style => "opacity:0;"
 			%img#gallery_image{:src => "", :alt => "Full sized concept"}
 
-			-# loader WAS located here...
 
 		#loader.loader.visible
 			.loader_circle.circle-1

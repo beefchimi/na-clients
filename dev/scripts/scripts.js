@@ -1,10 +1,9 @@
-// document.addEventListener('DOMContentLoaded', function() {
 docReady(function() {
 
 
 	// Global Variables
 	// ----------------------------------------------------------------------------
-	var elBody   = document.body,
+	var elHTML   = document.documentElement,
 		elMain   = document.getElementsByTagName('main')[0],
 		elLoader = document.getElementById('loader');
 
@@ -41,11 +40,12 @@ docReady(function() {
 				(function(i){
 					setTimeout(function() {
 						classie.add(arrArticles[i], 'loaded');
-						console.log(200 * i);
 					}, 200 * i);
 				})(i)
 			}
 
+			// once our images have loaded, it is safe to initialize gallery()
+			gallery();
 
 		});
 
@@ -85,7 +85,7 @@ docReady(function() {
 
 				loadImage();
 
-				elBody.setAttribute('data-gallery', 'active');
+				classie.add(elHTML, 'overlay_active');
 
 				e.preventDefault();
 
@@ -95,23 +95,19 @@ docReady(function() {
 
 		function loadImage() {
 
+			// scroll the <aside> to 0 so we don't end up opening a new image that is scrolled half way down
+			elGalleryOverlay.scrollTop = 0;
+
+			// get the iamge source from our array
 			dataSRC = arrGallerySource[dataCurrent];
 
-/*
-			var newImg = new Image;
-
-			newImg.onload = function() {
-				elGalleryImage.src = this.src;
-			}
-
-			newImg.src = dataSRC;
-*/
-
+			// set the new image source
 			elGalleryImage.src = dataSRC;
 
-			// fadeIn();
-
+			// set the new image title
 			elGalleryTitle.innerHTML = arrGalleryTitle[dataCurrent];
+
+			// current not used for anything... set data-current on <aside>
 			elGalleryOverlay.setAttribute('data-current', dataCurrent);
 
 		}
@@ -125,7 +121,6 @@ docReady(function() {
 			}
 
 			loadImage();
-			// fadeOut();
 
 			e.preventDefault();
 
@@ -140,7 +135,6 @@ docReady(function() {
 			}
 
 			loadImage();
-			// fadeOut();
 
 			e.preventDefault();
 
@@ -148,7 +142,7 @@ docReady(function() {
 
 		elGalleryClose.addEventListener('click', function(e) {
 
-			elBody.setAttribute('data-gallery', 'inactive');
+			classie.remove(elHTML, 'overlay_active');
 
 			e.preventDefault();
 
@@ -160,45 +154,6 @@ docReady(function() {
 	// Initialize Primary Functions
 	// ----------------------------------------------------------------------------
 	layoutPackery();
-	gallery();
-
-
-/*
-
-		function fadeOut() {
-
-			elGalleryImage.style.opacity = 1;
-
-			(function fade() {
-
-				if ( (elGalleryImage.style.opacity -= .1) < 0 ) {
-					loadImage(); // now loadImage
-				} else {
-					requestAnimationFrame(fade);
-				}
-
-			})();
-
-		}
-
-		function fadeIn() {
-
-			elGalleryImage.style.opacity = 0;
-
-			(function fade() {
-
-				var val = parseFloat(elGalleryImage.style.opacity);
-
-				if ( !((val += .1) > 1) ) {
-					elGalleryImage.style.opacity = val;
-					requestAnimationFrame(fade);
-				}
-
-			})();
-
-		}
-*/
 
 
 });
-// }, false);

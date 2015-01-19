@@ -22,13 +22,6 @@ body {
 	color: hsla(0,0%,0%,1);
 	background-color: hsla(0,0%,0%,1);
 }
-/*
-html,
-body {
-	min-height: 100%;
-	height: 100%;
-}
-*/
 
 // Transitions
 // ----------------------------------------------------------------------------
@@ -39,7 +32,7 @@ a {
 svg {
 	transition: fill 0.2s ease-in-out;
 }
-nav {
+aside {
 	transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
 }
 div.loader,
@@ -49,6 +42,7 @@ main article {
 main article a img {
 	transition: border-color 0.2s ease-in-out;
 }
+// might need to transition nav h4
 
 // General Styles
 // ----------------------------------------------------------------------------
@@ -178,46 +172,22 @@ main article a:active {
 	color: $gold_dark;
 	opacity: 0.96;
 }
-/* TESTING ONLY
-main p {
-	margin-bottom: 3.2rem;
-	font-size: 1.6rem;
-	line-height: 1.3;
-	color: $grey;
-}
-*/
 
 // Gallery
 // ----------------------------------------------------------------------------
-@keyframes galleryShow {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-@keyframes galleryHide {
-	0% {
-		opacity: 1;
-		left: 0;
-	}
-	100% {
-		opacity: 0;
-		left: 0;
-	}
-}
 aside {
 	position: fixed;
 	z-index: 100;
 	top: 0;
-	left: -150%;
-	width: 100%;
-	height: 100%;
+	right: 0;
+	bottom: 0;
+	left: 0;
 	padding-top: 6.4rem;
 	background-color: hsla(0,0%,100%,1);
 	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
+	opacity: 0;
+	visibility: hidden;
 }
 aside img {
 	display: block;
@@ -225,26 +195,6 @@ aside img {
 	z-index: 2;
 	margin: 0 auto;
 	color: hsla(0,0%,100%,0);
-	// opacity: 0;
-}
-// + overlay states + \\
-body[data-gallery="active"] {
-	overflow-y: hidden;
-}
-body[data-gallery="active"] aside {
-	left: 0;
-	animation: galleryShow 0.4s ease-in-out;
-}
-body[data-gallery="inactive"] aside {
-	animation: galleryHide 0.4s ease-in-out;
-}
-body[data-gallery="active"] nav {
-	opacity: 1;
-	visibility: visible;
-}
-body[data-gallery="inactive"] nav {
-	opacity: 0;
-	visibility: hidden;
 }
 // --- Navigation --- \\
 nav {
@@ -258,13 +208,13 @@ nav {
 	background-color: hsla(0,0%,100%,0.96);
 }
 nav h4 {
-	display: none;
-	visibility: hidden;
 	position: fixed;
-	top: 2.3rem;
-	left: 3.2rem;
+	top: -999rem;
+	left: -999rem;
 	font-size: 1.4rem;
 	color: $grey;
+	opacity: 0;
+	visibility: hidden;
 }
 nav a.nav_close {
 	display: inline-block;
@@ -304,15 +254,12 @@ nav a.nav_arrow:hover svg {
 nav a.nav_arrow:active svg {
 	fill: $gold_dark;
 }
-
-
-// --- Preload --- \\
-/*
-ul.preload {
-	display: none !important;
-	visibility: hidden;
-	position: absolute;
-	top: 0;
-	left: 0;
+// --- Overlay Active --- \\
+html.overlay_active,
+html.overlay_active body {
+	overflow-y: hidden;
 }
-*/
+html.overlay_active aside {
+	opacity: 1;
+	visibility: visible;
+}
