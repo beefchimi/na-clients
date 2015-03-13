@@ -2,56 +2,49 @@
 // WIDTHS: 480px / 568px / 960px / 1170px
 // ============================================================================
 
-@media only screen and (min-width: 30em) { // 480px / 16px = 30em
+@media only screen and (min-width: 480px) {
+
+	// Foundation
+	// ----------------------------------------------------------------------------
+	body {
+		padding-bottom: 4rem;
+	}
 
 	// Home Page
 	// ----------------------------------------------------------------------------
-	main {
+	main[data-container] {
 		max-width: 117rem; // 1106px + padding (32px x 2)
 	}
-	main div.gutter-sizer {
-		width: 2rem; // 4.545454545455%;
+	section.packery div.gutter-sizer {
+		width: 3.571429%; // 16 / 448
 		visibility: visible;
 	}
-	main article {
+	section.packery article {
 		margin-bottom: 4rem;
-		width: calc(50% - 3rem); // 43.75%;
+		width: 30.952381%;
 	}
 
 }
 
-@media only screen and (min-width: 35.5em) { // 568px / 16px = 35.5em
+@media only screen and (min-width: 960px) {
 
-	// Home Page
+	// Foundation
 	// ----------------------------------------------------------------------------
-	main {
-		padding-bottom: 3.2rem;
+	body {
+		padding-bottom: 10rem;
 	}
-	main article {
-		width: calc(33.33333333333333% - 2.7rem); // 28.169014084507%; // 568px - 40px - 48px / 3
-	}
-
-}
-
-@media only screen and (min-width: 60em) { // 960px / 16px = 60em
 
 	// Header
 	// ----------------------------------------------------------------------------
 	header {
-		padding: 6rem 3.2rem 10rem 3.2rem;
+		padding: 10rem 3.2rem;
 	}
 
 	// Home Page
 	// ----------------------------------------------------------------------------
-	main {
-		padding: 0 3.2rem 6rem 3.2rem;
-	}
-	main div.gutter-sizer {
-		width: 2.5rem; // 2.790178571429%; // 25 / 896
-	}
-	main article {
-		margin-bottom: 6rem;
-		width: calc(33.33333333333333% - 3.9rem); // 29.375%; // 960 - 64 = 896 - 48 = 848 / 3 = 282.66666666666667
+	main[data-container] {
+		padding-left: 3.2rem;
+		padding-right: 3.2rem;
 	}
 
 	// Gallery
@@ -59,22 +52,24 @@
 	nav h4 {
 		top: 2.3rem;
 		left: 3.2rem;
-		opacity: 1;
 		visibility: visible;
+	}
+	aside[data-modal="gallery"].img_loaded nav h4 {
+		opacity: 1;
 	}
 
 }
 
-@media only screen and (min-width: 73.125em) { // 1170px / 16px = 73.125em
+@media only screen and (min-width: 1170px) {
 
 	// Home Page
 	// ----------------------------------------------------------------------------
-	main div.gutter-sizer {
-		width: 7.6rem; // 6.871609403255%; // 76 / 1106 = 0.06871609403255
+	section.packery div.gutter-sizer {
+		width: 6.871609%;
 	}
-	main article {
+	section.packery article {
 		margin-bottom: 3.2rem;
-		width: calc(33.33333333333333% - 7.2rem); // 27.179487179487%; // 318 / 1170 = 0.27179487179487
+		width: 28.75226%;
 	}
 
 }

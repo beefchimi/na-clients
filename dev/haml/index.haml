@@ -1,124 +1,17 @@
 !!!
-%html{:lang => "en", "data-gallery" => "inactive"}
+/[if IE 9] <html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html{:lang => "en"}<>
+	<!--<![endif]-->
 
 	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
 
 	%body
 
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
 
-		%header
+		%main{:role => "main", "data-container" => true}
 
-			%h1 NA
-
-			%h2.subhead-1 Design Concepts / Round 2
-			%h2.subhead-2 For Sandwich
-
-
-		%main{:role => "main"}
-
-			.gutter-sizer
-
-			%article{:id => "post-1"}
-				%a.gallery_link{:href => "assets/img/01_golden_sandwich.jpg", :title => "01 &ndash; Golden Sandwich"}
-					%img{:src => "assets/img/01_golden_sandwich.jpg", :alt => "01 &ndash; Golden Sandwich"}
-					%h3 01 &ndash; Golden Sandwich
-
-			%article{:id => "post-2"}
-				%a.gallery_link{:href => "assets/img/02a_glasses.jpg", :title => "02a &ndash; Glasses"}
-					%img{:src => "assets/img/02a_glasses.jpg", :alt => "02a &ndash; Glasses"}
-					%h3 02a &ndash; Glasses
-
-			%article{:id => "post-3"}
-				%a.gallery_link{:href => "assets/img/02c_hollywood.jpg", :title => "02c &ndash; Hollywood"}
-					%img{:src => "assets/img/02c_hollywood.jpg", :alt => "02c &ndash; Hollywood"}
-					%h3 02c &ndash; Hollywood
-
-			%article{:id => "post-4"}
-				%a.gallery_link{:href => "assets/img/03.jpg", :title => "03"}
-					%img{:src => "assets/img/03.jpg", :alt => "03"}
-					%h3 03
-
-			%article{:id => "post-5"}
-				%a.gallery_link{:href => "assets/img/03b.jpg", :title => "03b"}
-					%img{:src => "assets/img/03b.jpg", :alt => "03b"}
-					%h3 03b
-
-			%article{:id => "post-6"}
-				%a.gallery_link{:href => "assets/img/03c.jpg", :title => "03c"}
-					%img{:src => "assets/img/03c.jpg", :alt => "03c"}
-					%h3 03c
-
-			%article{:id => "post-7"}
-				%a.gallery_link{:href => "assets/img/04a_classic.jpg", :title => "04a &ndash; Classic"}
-					%img{:src => "assets/img/04a_classic.jpg", :alt => "04a &ndash; Classic"}
-					%h3 04a &ndash; Classic
-
-			%article{:id => "post-8"}
-				%a.gallery_link{:href => "assets/img/04b_navy.jpg", :title => "04b &ndash; Navy"}
-					%img{:src => "assets/img/04b_navy.jpg", :alt => "04b &ndash; Navy"}
-					%h3 04b &ndash; Navy
-
-			%article{:id => "post-9"}
-				%a.gallery_link{:href => "assets/img/04c_salmon.jpg", :title => "04c &ndash; Salmon"}
-					%img{:src => "assets/img/04c_salmon.jpg", :alt => "04c &ndash; Salmon"}
-					%h3 04c &ndash; Salmon
-
-			%article{:id => "post-10"}
-				%a.gallery_link{:href => "assets/img/04d_sand.jpg", :title => "04d &ndash; Sand"}
-					%img{:src => "assets/img/04d_sand.jpg", :alt => "04d &ndash; Sand"}
-					%h3 04d &ndash; Sand
-
-			%article{:id => "post-11"}
-				%a.gallery_link{:href => "assets/img/04e_red.jpg", :title => "04e &ndash; Red"}
-					%img{:src => "assets/img/04e_red.jpg", :alt => "04e &ndash; Red"}
-					%h3 04e &ndash; Red
-
-			%article{:id => "post-12"}
-				%a.gallery_link{:href => "assets/img/04f_blue.jpg", :title => "04f &ndash; Blue"}
-					%img{:src => "assets/img/04f_blue.jpg", :alt => "04f &ndash; Blue"}
-					%h3 04f &ndash; Blue
-
-			%article{:id => "post-13"}
-				%a.gallery_link{:href => "assets/img/04g_blacktie.jpg", :title => "04g &ndash; Black Tie"}
-					%img{:src => "assets/img/04g_blacktie.jpg", :alt => "04g &ndash; Black Tie"}
-					%h3 04g &ndash; Black Tie
-
-			%article{:id => "post-14"}
-				%a.gallery_link{:href => "assets/img/05a.jpg", :title => "05a"}
-					%img{:src => "assets/img/05a.jpg", :alt => "05a"}
-					%h3 05a
-
-			%article{:id => "post-15"}
-				%a.gallery_link{:href => "assets/img/05b_navygold.jpg", :title => "05b &ndash; Navy Gold"}
-					%img{:src => "assets/img/05b_navygold.jpg", :alt => "05b &ndash; Navy Gold"}
-					%h3 05b &ndash; Navy Gold
-
-
-		%aside#gallery{"data-current" => ""}
-
-			%nav#pagination
-
-				%a#nav_prev.nav_prev.nav_arrow{:href => "#", :title => "Previous Image"}
-					%svg.svg_arrow
-						%use{"xlink:href" => "#arrow"}
-
-				%a#nav_close.nav_close{:href => "#", :title => "Close Image"} Back
-
-				%a#nav_next.nav_next.nav_arrow{:href => "#", :title => "Next Image"}
-					%svg.svg_arrow
-						%use{"xlink:href" => "#arrow"}
-
-				%h4#title_current &nbsp;
-
-			%img#gallery_image{:src => "", :alt => "Full sized concept"}
-
-
-		#loader.loader.visible
-			.loader_circle.circle-1
-			.loader_circle.circle-2
-			.loader_circle.circle-3
-
-			%p loading concepts
-
+			= Haml::Engine.new(File.read("dev/haml/partials/_html_packery.haml")).render
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render
