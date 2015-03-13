@@ -440,6 +440,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		function updateImageSrc() {
 
+			// scroll the <aside> to 0 so we don't end up opening a new image that is scrolled half way down
+			elGalleryModal.scrollTop = 0;
+
 			// build new image
 			elGalleryImage = document.createElement('img');
 			elGalleryImage.setAttribute('src', arrGallerySource[dataCurrent]);
