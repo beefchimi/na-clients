@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		// create document fragment
 		var docFrag = document.createDocumentFragment();
 
-		// lockBody();
+		lockBody();
 
 		// create empty overlay <div>
 		elOverlay = document.createElement('div');
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			// only listen for the opacity property
 			if (e.propertyName == "opacity") {
 
-				// unlockBody();
+				unlockBody();
 
 				// remove elOverlay from <body>
 				elBody.removeChild(elOverlay);
