@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		// create document fragment
 		var docFrag = document.createDocumentFragment();
 
-		lockBody();
+		// lockBody();
 
 		// create empty overlay <div>
 		elOverlay = document.createElement('div');
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			// only listen for the opacity property
 			if (e.propertyName == "opacity") {
 
-				unlockBody();
+				// unlockBody();
 
 				// remove elOverlay from <body>
 				elBody.removeChild(elOverlay);
@@ -212,12 +212,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 
-/*
 	// pageLoaded: Execute once the page has loaded and the FOUT animation has ended
 	// ----------------------------------------------------------------------------
 	function pageLoaded() {
-
-		console.log('begin!');
 
 		var elHeader = document.getElementsByTagName('header')[0];
 
@@ -233,7 +230,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		}
 
 	}
-*/
 
 
 	// layoutPackery: Wait until images are loaded then layout with packery.js
@@ -593,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Initialize Primary Functions
 	// ----------------------------------------------------------------------------
-	layoutPackery();
+	pageLoaded();
 	photoGallery();
 
 
