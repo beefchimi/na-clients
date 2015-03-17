@@ -12,14 +12,29 @@ body {
 	position: relative;
 	padding-bottom: 8rem;
 }
+#protected {
+	padding-bottom: 0;
+}
 ::selection {
 	color: $hsla_L100;
 	background-color: $hsla_L0;
 }
+::-webkit-input-placeholder {
+	color: $hsla_L21;
+}
+::-moz-placeholder {
+	color: $hsla_L21;
+	opacity: 1;
+}
+:-ms-input-placeholder {
+	color: $hsla_L21;
+}
 
 // Transitions
 // ----------------------------------------------------------------------------
-a {
+a,
+input,
+button {
 	transition: all 0.3s ease-in-out;
 	// backface-visibility: hidden; // required because <article> hovers were not working properly
 }
@@ -53,7 +68,8 @@ aside[data-modal="gallery"] img {
 	}
 }
 // --- FOUT --- \\
-html:not(.ie9) header {
+html:not(.ie9) header,
+html:not(.ie9) section.list {
 	opacity: 0; // begin by setting opacity to 0
 	animation: animShow 0.6s ease-in-out 0.4s forwards;
 }
@@ -91,6 +107,22 @@ div.loader_overlay div.wrap_svg svg {
 	fill: $hsla_L21;
 }
 
+// Forms
+// ----------------------------------------------------------------------------
+input[type="text"],
+input[type="password"] {
+	padding: 2rem;
+	width: 100%;
+	font-size: 1.6rem;
+	text-align: center;
+	color: $hsla_L21;
+	box-shadow: inset 0 0 0 0.1rem $hsla_gold;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+	box-shadow: inset 0 0 0 0.1rem $hsla_L21;
+}
+
 // General Styles
 // ----------------------------------------------------------------------------
 // --- Containers --- \\
@@ -119,13 +151,16 @@ svg.svg_inline {
 	display: inline; // [viewBox] attribute selector does not work in webkit
 }
 // --- Links --- \\
-a {
+a,
+input[type="submit"] {
 	color: $hsla_gold;
 }
-a:hover {
+a:hover,
+input[type="submit"]:hover {
 	color: $hsla_L21;
 }
-a:active {
+a:active,
+input[type="submit"]:active {
 	color: $hsla_L40;
 }
 // + buttons + \\
@@ -274,14 +309,51 @@ header h2:first-of-type {
 	margin-bottom: 0.6rem;
 }
 
+// List Links
+// ----------------------------------------------------------------------------
+ul.list_links li {
+	margin-bottom: 3.2rem;
+	text-align: center;
+}
+ul.list_links li a {
+	display: inline-block;
+	font-size: 2rem;
+}
+
+// Password Form
+// ----------------------------------------------------------------------------
+section.password {
+	display: table;
+	table-layout: fixed;
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 32rem;
+	height: 100vh;
+}
+section.password form {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+section.password form label {
+	display: block;
+	margin-bottom: 3.2rem;
+	font-size: 1.8rem;
+	letter-spacing: 0.2rem;
+	text-transform: uppercase;
+	color: $hsla_L21;
+}
+section.password form input[type="password"] {
+	margin-bottom: 3.2rem;
+}
+
 // Main
 // ----------------------------------------------------------------------------
 main[data-container] {
 	padding-left: 1.6rem;
 	padding-right: 1.6rem;
 	max-width: 35rem; // 318px + padding (16px x 2)
-}
-section.packery {
 }
 section.packery div.gutter-sizer {
 	width: 0;

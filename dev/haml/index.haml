@@ -8,10 +8,23 @@
 
 	%body
 
-		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+		%header
+			%h1 NA
+			%h2.subhead-1 Design Concepts
+			%h2.subhead-2 For Sandwich
 
 		%main{:role => "main", "data-container" => true}
 
-			= Haml::Engine.new(File.read("dev/haml/partials/_html_packery.haml")).render
+			%section#clients.list
+
+				%article
+
+					%ul.list_links
+						%li
+							%a{:href => "client.html", :title => "Sandwich"} Sandwich
+						%li
+							%a{:href => "client.html", :title => "Northman"} Northman
+						%li
+							%a{:href => "client.html", :title => "North and Navy"} North &amp; Navy
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

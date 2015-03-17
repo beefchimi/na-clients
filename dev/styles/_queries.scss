@@ -10,7 +10,7 @@
 		padding-bottom: 4rem;
 	}
 
-	// Home Page
+	// Main
 	// ----------------------------------------------------------------------------
 	main[data-container] {
 		max-width: 117rem; // 1106px + padding (32px x 2)
@@ -40,7 +40,16 @@
 		padding: 10rem 3.2rem;
 	}
 
-	// Home Page
+	// List Links
+	// ----------------------------------------------------------------------------
+	ul.list_links li {
+		margin-bottom: 6.4rem;
+	}
+	ul.list_links li a {
+		font-size: 3.2rem;
+	}
+
+	// Main
 	// ----------------------------------------------------------------------------
 	main[data-container] {
 		padding-left: 3.2rem;
@@ -62,7 +71,7 @@
 
 @media only screen and (min-width: 1170px) {
 
-	// Home Page
+	// Main
 	// ----------------------------------------------------------------------------
 	section.packery div.gutter-sizer {
 		width: 6.871609%;

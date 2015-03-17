@@ -1,0 +1,17 @@
+!!!
+/[if IE 9] <html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html{:lang => "en"}<>
+	<!--<![endif]-->
+
+	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
+
+	%body
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_html_header.haml")).render
+
+		%main{:role => "main", "data-container" => true}
+
+			= Haml::Engine.new(File.read("dev/haml/partials/_html_packery.haml")).render
+
+		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render
