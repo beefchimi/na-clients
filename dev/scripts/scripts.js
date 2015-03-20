@@ -237,6 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	function layoutPackery() {
 
 		var elPackeryContainer = document.getElementById('packery'),
+			elPackeryLoader    = document.getElementById('packery_loader'),
 			arrArticles        = document.getElementsByTagName('article');
 
 		// layout Packery after all images have loaded
@@ -248,7 +249,11 @@ document.addEventListener('DOMContentLoaded', function() {
 				gutter: 'div.gutter-sizer'
 			});
 
-			// hide loader?
+			// hide loader
+			classie.remove(elPackeryLoader, 'visible');
+
+			// listen for CSS transitionEnd before removing the element
+			elPackeryLoader.addEventListener(transitionEvent, removeLoader);
 
 			// iterate through each article and add 'loaded' class once ready
 			for (var i = 0; i < arrArticles.length; i++) {
@@ -260,6 +265,19 @@ document.addEventListener('DOMContentLoaded', function() {
 			}
 
 		});
+
+		function removeLoader(e) {
+
+			// only listen for the opacity property
+			if (e.propertyName == "opacity") {
+
+				// elBody not working for some reason
+				elPackeryLoader.parentNode.removeChild(elPackeryLoader);
+				elPackeryLoader.removeEventListener(transitionEvent, removeLoader);
+
+			}
+
+		}
 
 	}
 
