@@ -6,11 +6,15 @@
 
 	= Haml::Engine.new(File.read("dev/haml/partials/_doc_head.haml")).render
 
-	%body#protected
+	%body#error
 
 		%main{:role => "main", "data-container" => true}
 
-			%section.password.center_parent
-				= Haml::Engine.new(File.read("dev/haml/partials/_form_password.haml")).render
+			%section.error_404.center_parent
+
+				%article.center_child
+					%h4 Error 404
+					%p You in the wrong place homie.
+					%a.button{:href => "index.html", :title => "Return home"} Back Away
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render
