@@ -12,6 +12,13 @@
 
 		%main{:role => "main", "data-container" => true}
 
+			%section#content.content{"data-container" => "width_720"}
+
+				%article
+
+					:plain
+						<p>In this round of revisions, we have addressed the issues concerning design "pizzazz". Although we consider ourselves professionals of design, none of us were formally <a href="http://webspace.webring.com/people/mu/um_4887/13.jpg" title="I'm Dying" target="_blank">trained in pizzazz</a> or know the subtleties of its execution. Hopefully these latest revision entice your mind melon.</p>
+
 			= Haml::Engine.new(File.read("dev/haml/partials/_html_packery.haml")).render
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

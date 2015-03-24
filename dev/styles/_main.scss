@@ -6,6 +6,7 @@
 html {
 	font-family: "Apercu Medium", "Helvetica Neue", Helvetica, Calibri, sans-serif;
 	font-size-adjust: 0.508;
+	color: $hsla_L21;
 	background-color: $hsla_ash;
 }
 body {
@@ -70,7 +71,8 @@ aside[data-modal="gallery"] img {
 }
 // --- FOUT --- \\
 html:not(.ie9) header,
-html:not(.ie9) section.list {
+html:not(.ie9) section.list,
+html:not(.ie9) section.content {
 	opacity: 0; // begin by setting opacity to 0
 	animation: animShow 0.6s ease-in-out 0.4s forwards;
 }
@@ -131,11 +133,9 @@ input[type="password"]:focus {
 	margin-left: auto;
 	margin-right: auto;
 }
-/*
-[data-container="width_1170"] {
-	max-width: 117rem;
+[data-container="width_720"] {
+	max-width: 72rem;
 }
-*/
 .center_parent {
 	display: table;
 	table-layout: fixed;
@@ -253,7 +253,6 @@ nav h4 {
 	top: -999rem;
 	left: -999rem;
 	font-size: 1.4rem;
-	color: $hsla_L21;
 	opacity: 0;
 	visibility: hidden;
 }
@@ -317,10 +316,29 @@ header h1 {
 header h2 {
 	font-size: 1.6rem;
 	line-height: 1.2;
-	color: $hsla_L21;
 }
 header h2:first-of-type {
 	margin-bottom: 0.6rem;
+}
+
+// Main
+// ----------------------------------------------------------------------------
+main section {
+	margin-bottom: 6rem;
+}
+main section:last-child,
+main section:only-child  {
+	margin-bottom: 0;
+}
+
+// Content
+// ----------------------------------------------------------------------------
+section.content article {
+	text-align: center;
+}
+section.content article p {
+	font-size: 1.6rem;
+	line-height: 1.4;
 }
 
 // List Links
@@ -345,7 +363,6 @@ section.password form label {
 	font-size: 1.8rem;
 	letter-spacing: 0.2rem;
 	text-transform: uppercase;
-	color: $hsla_L21;
 }
 section.password form input[type="password"] {
 	margin-bottom: 3.2rem;
@@ -397,13 +414,13 @@ section.packery article.loaded a:active {
 	color: $hsla_gold-D;
 	opacity: 0.96;
 }
+html.ie9 #packery_loader {
+	display: none;
+	visibility: hidden;
+}
 
 // Error 404
 // ----------------------------------------------------------------------------
-section.error_404 h4,
-section.error_404 p {
-	color: $hsla_L21;
-}
 section.error_404 h4 {
 	margin-bottom: 2rem;
 	font-size: 4rem;

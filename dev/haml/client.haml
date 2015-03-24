@@ -12,6 +12,12 @@
 
 		%main{:role => "main", "data-container" => true}
 
+			%section#content.content{"data-container" => "width_720"}
+
+				%article
+
+					%p These are concepts for the branding component of the new Northman Insurance Company. What wondrous and exciting concepts lie within. Tread lightly young hero.
+
 			= Haml::Engine.new(File.read("dev/haml/partials/_sec_list.haml")).render
 
 		= Haml::Engine.new(File.read("dev/haml/partials/_doc_scripts.haml")).render

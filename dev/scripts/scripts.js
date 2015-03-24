@@ -186,24 +186,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	function destroyOverlay() {
 
-		fadeOut(elOverlay);
+		if ( classie.has(elHTML, 'ie9') ) {
 
-		// listen for CSS transitionEnd before removing the element
-		elOverlay.addEventListener(transitionEvent, removeOverlay);
+			unlockBody();
+			elBody.removeChild(elOverlay);
 
-		// maybe expand this to be passed an ID, and it can destroy / remove any element?
-		function removeOverlay(e) {
+		} else {
 
-			// only listen for the opacity property
-			if (e.propertyName == "opacity") {
+			fadeOut(elOverlay);
 
-				unlockBody();
+			// listen for CSS transitionEnd before removing the element
+			elOverlay.addEventListener(transitionEvent, removeOverlay);
 
-				// remove elOverlay from <body>
-				elBody.removeChild(elOverlay);
+			// maybe expand this to be passed an ID, and it can destroy / remove any element?
+			function removeOverlay(e) {
 
-				// must remove event listener!
-				elOverlay.removeEventListener(transitionEvent, removeOverlay);
+				// only listen for the opacity property
+				if (e.propertyName == "opacity") {
+
+					unlockBody();
+
+					// remove elOverlay from <body>
+					elBody.removeChild(elOverlay);
+
+					// must remove event listener!
+					elOverlay.removeEventListener(transitionEvent, removeOverlay);
+
+				}
 
 			}
 
@@ -215,6 +224,16 @@ document.addEventListener('DOMContentLoaded', function() {
 	// pageLoaded: Execute once the page has loaded and the FOUT animation has ended
 	// ----------------------------------------------------------------------------
 	function pageLoaded() {
+
+		// add 'has_scrollbar' class for OSs that use a visible scrollbar
+		if (hasScrollbar) {
+			classie.add(elHTML, 'has_scrollbar');
+		}
+
+		// the rest of the code does not apply to IE9, so exit
+		if ( classie.has(elHTML, 'ie9') ) {
+			return;
+		}
 
 		var elHeader = document.getElementsByTagName('header')[0];
 
@@ -249,11 +268,15 @@ document.addEventListener('DOMContentLoaded', function() {
 				gutter: 'div.gutter-sizer'
 			});
 
-			// hide loader
-			classie.remove(elPackeryLoader, 'visible');
+			if ( !classie.has(elHTML, 'ie9') ) {
 
-			// listen for CSS transitionEnd before removing the element
-			elPackeryLoader.addEventListener(transitionEvent, removeLoader);
+				// hide loader
+				classie.remove(elPackeryLoader, 'visible');
+
+				// listen for CSS transitionEnd before removing the element
+				elPackeryLoader.addEventListener(transitionEvent, removeLoader);
+
+			}
 
 			// iterate through each article and add 'loaded' class once ready
 			for (var i = 0; i < arrArticles.length; i++) {
@@ -445,8 +468,13 @@ document.addEventListener('DOMContentLoaded', function() {
 				// remove 'img_loaded' class - return to opacity: 0;
 				classie.remove(elGalleryModal, 'img_loaded');
 
-				// listen for CSS transitionEnd before setting new image src
-				elGalleryImage.addEventListener(transitionEvent, galleryTransitionEnd);
+				if ( classie.has(elHTML, 'ie9') ) {
+					elGalleryModal.removeChild(elGalleryImage);
+					updateImageSrc();
+				} else {
+					// listen for CSS transitionEnd before setting new image src
+					elGalleryImage.addEventListener(transitionEvent, galleryTransitionEnd);
+				}
 
 			}
 
