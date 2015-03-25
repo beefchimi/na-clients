@@ -6,8 +6,8 @@
 html {
 	font-family: "Apercu Medium", "Helvetica Neue", Helvetica, Calibri, sans-serif;
 	font-size-adjust: 0.508;
-	color: $hsla_L21;
-	background-color: $hsla_ash;
+	color: $hsl_L21;
+	background-color: $hsl_ash;
 }
 body {
 	position: relative;
@@ -18,18 +18,18 @@ body {
 	padding-bottom: 0;
 }
 ::selection {
-	color: $hsla_L100;
-	background-color: $hsla_L0;
+	color: $hsl_L100;
+	background-color: $hsl_L0;
 }
 ::-webkit-input-placeholder {
-	color: $hsla_L21;
+	color: $hsl_L21;
 }
 ::-moz-placeholder {
-	color: $hsla_L21;
+	color: $hsl_L21;
 	opacity: 1;
 }
 :-ms-input-placeholder {
-	color: $hsla_L21;
+	color: $hsl_L21;
 }
 
 // Transitions
@@ -107,7 +107,7 @@ div.loader_overlay div.wrap_svg {
 	animation: anim360 1s linear infinite forwards;
 }
 div.loader_overlay div.wrap_svg svg {
-	fill: $hsla_L21;
+	fill: $hsl_L21;
 }
 
 // Forms
@@ -118,12 +118,12 @@ input[type="password"] {
 	width: 100%;
 	font-size: 1.6rem;
 	text-align: center;
-	color: $hsla_L21;
-	box-shadow: inset 0 0 0 0.1rem $hsla_gold;
+	color: $hsl_L21;
+	box-shadow: inset 0 0 0 0.1rem $hsl_gold;
 }
 input[type="text"]:focus,
 input[type="password"]:focus {
-	box-shadow: inset 0 0 0 0.1rem $hsla_L21;
+	box-shadow: inset 0 0 0 0.1rem $hsl_L21;
 }
 
 // General Styles
@@ -167,15 +167,15 @@ svg.svg_inline {
 // --- Links --- \\
 a,
 input[type="submit"] {
-	color: $hsla_gold;
+	color: $hsl_gold;
 }
 a:hover,
 input[type="submit"]:hover {
-	color: $hsla_L21;
+	color: $hsl_L21;
 }
 a:active,
 input[type="submit"]:active {
-	color: $hsla_L40;
+	color: $hsl_L40;
 }
 // + buttons + \\
 .button {
@@ -186,15 +186,15 @@ input[type="submit"]:active {
 	letter-spacing: 0.2rem;
 	text-align: center;
 	text-transform: uppercase;
-	border: 0.1rem solid $hsla_gold;
+	border: 0.1rem solid $hsl_gold;
 }
 .button:hover {
-	// color: $hsla_L21;
-	border-color: $hsla_L21;
+	// color: $hsl_L21;
+	border-color: $hsl_L21;
 }
 .button:active {
-	// color: $hsla_L40;
-	border-color: $hsla_L40;
+	// color: $hsl_L40;
+	border-color: $hsl_L40;
 }
 
 // Overlay & Modal
@@ -208,7 +208,7 @@ input[type="submit"]:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: $hsla_ash-A96;
+	background-color: $hsla_ash-96;
 	overflow: hidden;
 }
 [data-modal] {
@@ -246,7 +246,7 @@ nav {
 	left: 0;
 	height: 6.4rem;
 	text-align: center;
-	background-color: $hsla_ash-A96;
+	background-color: $hsla_ash-96;
 }
 nav h4 {
 	position: fixed;
@@ -272,7 +272,7 @@ nav a.nav_next {
 	transform: translateX(8rem) rotate(180deg);
 }
 nav a.nav_arrow svg {
-	fill: $hsla_L21;
+	fill: $hsl_L21;
 }
 nav a.nav_close {
 	display: inline-block;
@@ -280,20 +280,20 @@ nav a.nav_close {
 	padding: 1rem 2rem;
 	font-size: 1.4rem;
 	text-transform: uppercase;
-	color: $hsla_L21;
+	color: $hsl_L21;
 }
 // + interaction + \\
 nav a.wrap_svg:hover svg {
-	fill: $hsla_gold;
+	fill: $hsl_gold;
 }
 nav a.nav_close:hover {
-	color: $hsla_gold;
+	color: $hsl_gold;
 }
 nav a.wrap_svg:active svg {
-	fill: $hsla_gold-D;
+	fill: darken($hsl_gold, 10%);
 }
 nav a.nav_close:active {
-	color: $hsla_gold-D;
+	color: darken($hsl_gold, 10%);
 }
 
 
@@ -311,7 +311,7 @@ header h1 {
 	font-family: "Apercu Bold", "Helvetica Neue", Helvetica, Calibri, sans-serif;
 	font-weight: bold;
 	font-size: 2rem;
-	color: $hsla_gold;
+	color: $hsl_gold;
 }
 header h2 {
 	font-size: 1.6rem;
@@ -393,7 +393,7 @@ section.packery article h3 {
 }
 section.packery article a {
 	display: block;
-	color: $hsla_L21;
+	color: $hsl_L21;
 	opacity: 0.01;
 }
 section.packery article a img {
@@ -404,14 +404,14 @@ section.packery article.loaded a {
 	opacity: 1;
 }
 section.packery article.loaded a:hover {
-	color: $hsla_gold;
+	color: $hsl_gold;
 	opacity: 0.86;
 }
 section.packery article.loaded a:hover img {
 	border-color: hsla(0,0%,0%,0.3);
 }
 section.packery article.loaded a:active {
-	color: $hsla_gold-D;
+	color: darken($hsl_gold, 10%);
 	opacity: 0.96;
 }
 html.ie9 #packery_loader {
