@@ -189,11 +189,9 @@ input[type="submit"]:active {
 	border: 0.1rem solid $hsl_gold;
 }
 .button:hover {
-	// color: $hsl_L21;
 	border-color: $hsl_L21;
 }
 .button:active {
-	// color: $hsl_L40;
 	border-color: $hsl_L40;
 }
 
@@ -208,7 +206,7 @@ input[type="submit"]:active {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: $hsla_ash-96;
+	background-color: rgba($hsl_ash, 0.96);
 	overflow: hidden;
 }
 [data-modal] {
@@ -246,7 +244,7 @@ nav {
 	left: 0;
 	height: 6.4rem;
 	text-align: center;
-	background-color: $hsla_ash-96;
+	background-color: rgba($hsl_ash, 0.96);
 }
 nav h4 {
 	position: fixed;
