@@ -193,28 +193,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		} else {
 
-			fadeOut(elOverlay);
-
 			// listen for CSS transitionEnd before removing the element
 			elOverlay.addEventListener(transitionEvent, removeOverlay);
 
-			// maybe expand this to be passed an ID, and it can destroy / remove any element?
-			function removeOverlay(e) {
+			// fadeout overlay after adding event listener
+			fadeOut(elOverlay);
 
-				// only listen for the opacity property
-				if (e.propertyName == "opacity") {
+		}
 
-					unlockBody();
+	}
 
-					// remove elOverlay from <body>
-					elBody.removeChild(elOverlay);
+	// maybe expand this to be passed an ID, and it can destroy / remove any element?
+	function removeOverlay(e) {
 
-					// must remove event listener!
-					elOverlay.removeEventListener(transitionEvent, removeOverlay);
+		// only listen for the opacity property
+		if (e.propertyName == "opacity") {
 
-				}
+			unlockBody();
 
-			}
+			// must remove event listener!
+			elOverlay.removeEventListener(transitionEvent, removeOverlay);
+
+			// remove elOverlay from <body> once event listener has been removed
+			elBody.removeChild(elOverlay);
 
 		}
 
@@ -444,6 +445,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			elGalleryNext.addEventListener('click', galleryNext);
 			elGalleryClose.addEventListener('click', clickClose);
 			elGalleryModal.addEventListener('click', clickModal);
+			window.addEventListener('keydown', keyboardControls);
 
 			e.preventDefault();
 
@@ -581,6 +583,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			elGalleryNext.removeEventListener('click', galleryNext);
 			elGalleryClose.removeEventListener('click', clickClose);
 			elGalleryModal.removeEventListener('click', clickModal);
+			window.removeEventListener('keydown', keyboardControls);
 
 		}
 
@@ -605,6 +608,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 				galleryClose();
 
+			}
+
+		}
+
+		// allow for keyboard entry
+		function keyboardControls(e) {
+
+			if (e.keyCode === 37) {
+				galleryPrevious(e);
+			} else if (e.keyCode === 39) {
+				galleryNext(e);
+			} else if (e.keyCode === 27) {
+				clickClose(e);
+			} else if (e.keyCode === 13) {
+				e.preventDefault(); // 'enter' key seems to cause the slider to stall, so we must prevent default
 			}
 
 		}
