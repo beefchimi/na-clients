@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Global Variables
 	// ----------------------------------------------------------------------------
-	var transitionEvent = whichTransitionEvent(),
-		animationEvent  = whichAnimationEvent(),
+	var animationEvent  = whichAnimationEvent(),
+		transitionEvent = whichTransitionEvent(),
 		elHTML          = document.documentElement,
 		elBody          = document.body,
 		elOverlay,
@@ -19,25 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	// Helper: Check when a CSS transition or animation has ended
 	// ----------------------------------------------------------------------------
-	function whichTransitionEvent() {
-
-		var trans,
-			element     = document.createElement('fakeelement'),
-			transitions = {
-				'transition'       : 'transitionend',
-				'OTransition'      : 'oTransitionEnd',
-				'MozTransition'    : 'transitionend',
-				'WebkitTransition' : 'webkitTransitionEnd'
-			}
-
-		for (trans in transitions) {
-			if (element.style[trans] !== undefined) {
-				return transitions[trans];
-			}
-		}
-
-	}
-
 	function whichAnimationEvent() {
 
 		var anim,
@@ -52,6 +33,25 @@ document.addEventListener('DOMContentLoaded', function() {
 		for (anim in animations) {
 			if (element.style[anim] !== undefined) {
 				return animations[anim];
+			}
+		}
+
+	}
+
+	function whichTransitionEvent() {
+
+		var trans,
+			element     = document.createElement('fakeelement'),
+			transitions = {
+				'transition'       : 'transitionend',
+				'OTransition'      : 'oTransitionEnd',
+				'MozTransition'    : 'transitionend',
+				'WebkitTransition' : 'webkitTransitionEnd'
+			}
+
+		for (trans in transitions) {
+			if (element.style[trans] !== undefined) {
+				return transitions[trans];
 			}
 		}
 
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	function removeOverlay(e) {
 
 		// only listen for the opacity property
-		if (e.propertyName == "opacity") {
+		if (e.propertyName == 'opacity') {
 
 			unlockBody();
 
@@ -614,6 +614,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 		// allow for keyboard entry
 		function keyboardControls(e) {
+
+			// if pressing keys too quickly, gallery will stall
 
 			if (e.keyCode === 37) {
 				galleryPrevious(e);

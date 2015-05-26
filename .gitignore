@@ -20,6 +20,9 @@ dev/extra/fonts
 # Ignore images
 dev/media/images
 
+# Ignore scrap PNGs (but include everything else, in case they need to be resurrected)
+dev/extra/scrap/*.png
+
 # Ignore vendor scripts
 dev/scripts/vendor
 
